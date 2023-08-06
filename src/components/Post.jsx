@@ -28,10 +28,11 @@ const PostDate = styled.Text`
 `;
 
 const PostDetails = styled.View`
+  flex: 1;
   justify-content: center;
 `;
 
-export const Post = ({ imageUrl, title, createDate }) => {
+export const Post = ({ imageUrl, title, createdAt }) => {
   return (
     <PostView>
       <PostImage
@@ -41,7 +42,7 @@ export const Post = ({ imageUrl, title, createDate }) => {
       />
       <PostDetails>
         <PostTitle>{title}</PostTitle>
-        <PostDate>{createDate}</PostDate>
+        <PostDate>{createdAt}</PostDate>
       </PostDetails>
     </PostView>
   );
