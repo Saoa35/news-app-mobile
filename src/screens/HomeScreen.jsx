@@ -2,14 +2,13 @@ import {
   View,
   Alert,
   FlatList,
-  ActivityIndicator,
-  Text,
   RefreshControl,
   TouchableOpacity,
 } from "react-native";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Post } from "../components/Post";
+import { Loading } from "../components/Loading";
 
 export default function HomeScreen() {
   const [posts, setPosts] = useState([]);
@@ -36,12 +35,7 @@ export default function HomeScreen() {
   }, []);
 
   if (isLoading) {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator size="large" />
-        <Text style={{ marginTop: "15px" }}>Loading articles...</Text>
-      </View>
-    );
+    return <Loading />;
   }
 
   return (
