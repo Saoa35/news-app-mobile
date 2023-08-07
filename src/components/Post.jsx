@@ -33,6 +33,14 @@ const PostDetails = styled.View`
 `;
 
 export const Post = ({ imageUrl, title, createdAt }) => {
+  const truncateTitle = (string) => {
+    if (string.length >= 50) {
+      return string.substring(0, 50) + "...";
+    }
+
+    return string;
+  };
+
   return (
     <PostView>
       <PostImage
@@ -41,7 +49,7 @@ export const Post = ({ imageUrl, title, createdAt }) => {
         }}
       />
       <PostDetails>
-        <PostTitle>{title}</PostTitle>
+        <PostTitle>{truncateTitle(title)}</PostTitle>
         <PostDate>{createdAt}</PostDate>
       </PostDetails>
     </PostView>

@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Text, View, Image, Alert } from "react-native";
 import styled from "styled-components/native";
-import { Loading } from "../components/Loading";
 
 const PostImage = styled.Image`
   width: 100%;
@@ -17,16 +16,11 @@ const PostText = styled.Text`
 `;
 
 export const FullPostScreen = ({ route, navigation }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const { title, imageUrl, text, createdAt } = route.params;
+  const { title, imageUrl, text } = route.params;
 
   useEffect(() => {
     navigation.setOptions({ title });
   }, []);
-
-  if (!text && !imageUrl) {
-    return <Loading />;
-  }
 
   return (
     <View style={{ padding: 10 }}>
