@@ -10,7 +10,7 @@ import axios from "axios";
 import { Post } from "../components/Post";
 import { Loading } from "../components/Loading";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -46,7 +46,16 @@ export default function HomeScreen() {
         }
         data={posts}
         renderItem={({ item }) => (
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("FullPost", {
+                title: item.title,
+                imageUrl: item.imageUrl,
+                text: item.text,
+                createdAt: item.createdAt,
+              })
+            }
+          >
             <Post
               imageUrl={item.imageUrl}
               title={item.title}
