@@ -23,7 +23,7 @@ export const FullPostScreen = () => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get("https://mocki.io/v1/670a3cfb-2656-4295-a5fc-06a631c08b1f/1")
+      .get("https://mocki.io/v1/670a3cfb-2656-4295-a5fc-06a631c08b1f/")
       .then(({ data }) => {
         setData(data);
         console.log(data);
